@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package micro.service.user;
+
+service UserService {
+    // user sign up
+    rpc Signup(ReqSignup) returns (RespSignup) {}
+    // user login
+    rpc Login(ReqLogin) returns (RespLogin) {}
+}
+
+message ReqSignup {
+    string username = 1;
+    string password = 2;
+}
+
+message RespSignup {
+    int32 code = 1;
+    string message = 2;
+}
+
+message ReqLogin {
+    string username = 1;
+    string password = 2;
+}
+
+message RespLogin {
+    int32 code = 1;
+    string token = 2;
+    string message = 3;
+}
